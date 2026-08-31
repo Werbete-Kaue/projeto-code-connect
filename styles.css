@@ -159,3 +159,22 @@ textarea {
     transform: translateY(-50%);
     margin-left: 8px;
 }
+
+.botao-publicar {
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+.botao-publicar::after {
+    content: "";
+    background-image: url(img/arrow_forward2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
