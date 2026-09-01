@@ -66,10 +66,14 @@ inputTags.addEventListener("keypress", async (evento) => {
             try {
 
             const tagExiste = await verificaTagsDisponiveis(tagTexto);
+            if (tagExiste) {
             const tagNova = document.createElement("li");
             tagNova.innerHTML = `<p>${tagTexto}</p> <img src="./img/close-black.svg" class="remove-tag">`
             listaTags.appendChild(tagNova);
             inputTags.value = "";
+            } else {
+                alert("A tag não foi encontrada.");
+            }
         }catch(error){
             console.error("Erro ao verificar  a existência da tag");
             alert("Erro ao verificar a existêcia da tag. Verifique o console.")
