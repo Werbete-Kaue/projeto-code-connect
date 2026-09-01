@@ -46,7 +46,7 @@ inputTags.addEventListener("keypress", (evento) => {
         const tagTexto = inputTags.value.trim();
         if (tagTexto !== ""){
             const tagNova = document.createElement("li");
-            tagNova.innerHTML = `<p>${tagTexto}</p> <img src="./img/close-black.svg class="remove-tag">`
+            tagNova.innerHTML = `<p>${tagTexto}</p> <img src="./img/close-black.svg" class="remove-tag">`
             listaTags.appendChild(tagNova);
             inputTags.value = "";
         }
