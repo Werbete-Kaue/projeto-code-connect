@@ -9,7 +9,7 @@ function lerConteudoDoArquivo(arquivo) {
     return new Promise((resolve, reject) => {
         const leitor = new FileReader();
         leitor.onload = () => {
-            resolve({URL: leitor.result, nome: arquivo.name})
+            resolve({url: leitor.result, nome: arquivo.name})
         }
 
         leitor.onerror = () => {
@@ -19,3 +19,20 @@ function lerConteudoDoArquivo(arquivo) {
         leitor.readAsDataURL(arquivo);
     })
 }
+
+const imagemPrincipal = document.querySelector(".main-image")
+const nomeDaImagem = document.querySelector(".container-imagem-nome p")
+
+inputUpload.addEventListener("change", async (evento) => {
+    const arquivo = evento.target.files[0];
+
+    if (arquivo) {
+        try {
+            const conteudoDoArquivo = await lerConteudoDoArquivo(arquivo);
+            imagemPrincipal.src = conteudoDoArquivo.url
+            nomeDaImagem.textContent = conteudoDoArquivo.nome
+        } catch (erro) {
+            console.error("Erro ao fazer upload do arquivo");
+        }
+    }
+})
